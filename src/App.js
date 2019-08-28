@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import rootReducer from './reducers/rootReducer';
+
+import Main from './Main';
+
+const store=createStore(rootReducer,{money:1000});
+console.log(store.getState())
+store.dispatch({type:"INTEREST",rate:1.20})
+console.log(store.getState())
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Provider store={store}>
+     <div className="App">
+       <Main></Main>
+     </div>
+    </Provider>
   );
 }
 
