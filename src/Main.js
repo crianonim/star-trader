@@ -8,9 +8,13 @@ const Main = (props)=>{
     const prices=useSelector( (state)=>state.prices);
     return (
         <>
-        <p>{money}</p>
-        <button onClick={()=>dispatch({type:"INTEREST",rate:1.06})}>Interest</button>
-        <button onClick={actions.createActionRandomisePrices(dispatch,prices)}>Randomise Prices</button>
+        <p>Money: {money}</p>
+        {/* <button onClick={()=>dispatch({type:"INTEREST",rate:1.06})}>Interest</button> */}
+        {
+         inventory.fuel>=10?   
+            <button onClick={actions.createActionRandomisePrices(dispatch,prices)}>Travel to a new Planet! (10 fuel)</button>
+            :null
+        }
 
         <div className="list">
             <h4>Commodities</h4>

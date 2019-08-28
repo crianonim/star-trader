@@ -10,6 +10,7 @@ const rootReducer = (state, action) => {
 
             return {
                 ...state,
+                inventory:{...state.inventory,fuel:state.inventory.fuel-10},
                 prices: action.prices
             }
 
