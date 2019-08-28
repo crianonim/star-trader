@@ -3,7 +3,8 @@ import {useSelector,useDispatch} from 'react-redux';
 import * as actions from './reducers/actionCreators';
 const Main = (props)=>{
     const dispatch=useDispatch();
-    const money=useSelector( (state)=>state.inventory.money);
+    const money=useSelector((state=>state.money))
+    const inventory=useSelector( (state)=>state.inventory);
     const prices=useSelector( (state)=>state.prices);
     return (
         <>
@@ -11,12 +12,16 @@ const Main = (props)=>{
         <button onClick={()=>dispatch({type:"INTEREST",rate:1.06})}>Interest</button>
         <button onClick={actions.createActionRandomisePrices(dispatch,prices)}>Randomise Prices</button>
 
-        <div className="Price list">
+        <div className="list">
+            <h4>Commodities</h4>
             <ul>
 
-            {Object.entries(prices).map(([item,price])=>
+            {Object.entries(inventory).map(([item,amount])=>
                 (<li key={item}>
-                    {item} : {price}
+                    {item} : ({amount}) cost: {prices[item]} 
+                    <button onClick={()=>dispatch({type:"TRADE",payload:{item,amount:1,price:prices[item]}})}>Buy</button>
+                    <button onClick={()=>dispatch({type:"TRADE",payload:{item,amount:-1,price:prices[item]}})}>Sell</button>
+
                 </li>)
             )}
             </ul>

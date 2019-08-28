@@ -1,19 +1,41 @@
-
-
 const rootReducer = (state, action) => {
     switch (action.type) {
         case 'INTEREST':
             return {
-                ...state, inventory: {
-                    ...state.actioninventory,
-                    money: state.inventory.money * action.rate || 1.01
-                }
+                ...state,
+                money: (state.money * action.rate || 1.01)
             }
+            break;
         case 'RANDOMISE_PRICES':
-           
-            return {...state,prices:action.prices}
-            
-            
+
+            return {
+                ...state,
+                prices: action.prices
+            }
+
+            break;
+        case 'TRADE':
+            const {price,amount,item}=action.payload;
+
+            console.log(amount,state.inventory[item])
+            //buy
+            if (amount>0){
+                if (price*amount>state.money){
+                    console.log("Not enough money");
+                    return state;
+                }
+            } else
+            //sell
+            {
+                if (-amount>state.inventory[item]) {
+                    console.log("Don't have enough items.")
+                    return state;
+                }
+                
+            }
+            return {...state,money:state.money-price*amount,inventory:{...state.inventory,[item]:state.inventory[item]+amount}}
+
+            break;
         default:
             return state;
     }

@@ -13,8 +13,8 @@ const store=createStore(rootReducer,{
     electronics:randInt(10),
     minerals:randInt(10)
   },
+  money:50,
   inventory:{
-    money:1000,
     fuel:100,
     food:0,
     electronics:0,
