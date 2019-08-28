@@ -26,7 +26,9 @@ const Main = (props)=>{
                     {item} : ({amount}) cost: {prices[item]} 
                     <button onClick={()=>dispatch({type:"TRADE",payload:{item,amount:1,price:prices[item]}})}>Buy</button>
                     <button onClick={()=>dispatch({type:"TRADE",payload:{item,amount:-1,price:prices[item]}})}>Sell</button>
-                    <ActionButton>Próba</ActionButton>
+                    <ActionButton dispatch={dispatch} action="TRADE" payload={{item,amount:2}}>+Buy</ActionButton>
+                    <ActionButton dispatch={dispatch} action="TRADE" payload={{item,amount:-2}}>+Sell</ActionButton>
+
                 </li>)
             )}
             </ul>

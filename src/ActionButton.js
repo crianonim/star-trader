@@ -1,8 +1,10 @@
 import React from 'react';
 
-const ActionButton = ({children})=>{
+const ActionButton = ({children,dispatch,action,payload})=>{
     return (
-        <button>{children}</button>
+        <button onClick={()=>{
+            dispatch({type:action,payload})
+        }}>{children}</button>
     )
 }
 
