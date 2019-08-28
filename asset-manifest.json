@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/star-trader/static/css/main.2cce8147.chunk.css",
+    "main.js": "/star-trader/static/js/main.9cef72b1.chunk.js",
+    "main.js.map": "/star-trader/static/js/main.9cef72b1.chunk.js.map",
+    "runtime~main.js": "/star-trader/static/js/runtime~main.d9f1fe9f.js",
+    "runtime~main.js.map": "/star-trader/static/js/runtime~main.d9f1fe9f.js.map",
+    "static/js/2.a1087e2f.chunk.js": "/star-trader/static/js/2.a1087e2f.chunk.js",
+    "static/js/2.a1087e2f.chunk.js.map": "/star-trader/static/js/2.a1087e2f.chunk.js.map",
+    "index.html": "/star-trader/index.html",
+    "precache-manifest.5b00ee082da5437a0caeb1bdb7630656.js": "/star-trader/precache-manifest.5b00ee082da5437a0caeb1bdb7630656.js",
+    "service-worker.js": "/star-trader/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/star-trader/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/star-trader/static/media/logo.5d5d9eef.svg"
+  }
+}
