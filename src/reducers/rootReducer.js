@@ -1,4 +1,7 @@
 import * as trade from '../game-logic/trade';
+import * as player from '../game-logic/player';
+import * as game from '../game-logic/index'
+
 const rootReducer = (state, action) => {
     switch (action.type) {
         case 'INTEREST':
@@ -41,6 +44,14 @@ const rootReducer = (state, action) => {
             return {...state,money:money-price*amount,inventory:inventory.map(el=>el[0]==item?[el[0],el[1]+amount]:el)}
 
             break;
+        case 'TRAVEL':
+            const {destination,distance}=action.payload
+            const fuel=player.getItemCount(state.inventory,"fuel")
+            if (fuel<distance) return state;
+            return {...state,inventory:state.inventory.map(el=>el[0]=="fuel"?["fuel",fuel-distance]:el),place:destination}
+        case 'TURN':
+            const turns=action.payload
+            return game.turn(turns,state);
         default:
             return state;
     }

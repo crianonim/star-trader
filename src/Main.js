@@ -21,7 +21,7 @@ const Main = (props)=>{
         </ul>
         <h3>You can travel to:</h3>
         <ul>
-        {planet.routes.map( ([name,distance])=>(<li key={name}>{name} - {distance} <ActionButton dispatch={dispatch} action="TRAVEL" payload={{destination:name,distance}} >Travel</ActionButton></li>))}
+        {planet.routes.map( ([name,distance])=>(<li key={name}>{name} - {distance} <ActionButton dispatch={dispatch} action="TRAVEL" payload={{destination:name,distance,turns:distance}} >Travel</ActionButton></li>))}
         </ul>
         <h3>You can trade here:</h3>
         <ul>
