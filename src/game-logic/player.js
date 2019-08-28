@@ -1,0 +1,1 @@
+export const getItemCount=(inventory,itemName)=>inventory.find(el=>el[0]===itemName)[1]
