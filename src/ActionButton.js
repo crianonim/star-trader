@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ActionButton = ({children,dispatch,action,payload})=>{
+const ActionButton = ({children,dispatch,action,payload,disabled})=>{
     return (
-        <button onClick={()=>{
+        <button disabled={disabled} onClick={()=>{
             dispatch({type:action,payload})
             if (payload.turns){
                 dispatch({type:"TURN",payload:payload.turns})

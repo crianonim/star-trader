@@ -2,10 +2,12 @@ import React from 'react'
 import {useSelector,useDispatch} from 'react-redux';
 import ActionButton from './ActionButton';
 import * as trade from './game-logic/trade'
+import * as game from './game-logic/index';
 
 const Main = (props)=>{
     const dispatch=useDispatch();
-    const {turn,place}=useSelector((state)=>state);
+    const state=useSelector((state)=>state)
+    const {turn,place}=state;
     const money=useSelector((state=>state.money))
     const inventory=useSelector( (state)=>state.inventory);
     const planets=useSelector( (state)=>state.planets);
@@ -21,13 +23,13 @@ const Main = (props)=>{
         </ul>
         <h3>You can travel to:</h3>
         <ul>
-        {planet.routes.map( ([name,distance])=>(<li key={name}>{name} - {distance} <ActionButton dispatch={dispatch} action="TRAVEL" payload={{destination:name,distance,turns:distance}} >Travel</ActionButton></li>))}
+        {planet.routes.map( ([name,distance])=>(<li key={name}>{name} - {distance} <ActionButton dispatch={dispatch} disabled={!game.canTravel(state,name)} action="TRAVEL" payload={{destination:name,distance,turns:distance}} >Travel</ActionButton></li>))}
         </ul>
         <h3>You can trade here:</h3>
         <ul>
             {inventory.map(([name,amount])=>(<li key={name}>{name} - you have: {amount}  price: {trade.calculatePrice(planet,name)} 
-             <ActionButton dispatch={dispatch} action="TRADE" payload={{item:name,amount:2}}>Buy</ActionButton>
-             <ActionButton dispatch={dispatch} action="TRADE" payload={{item:name,amount:-2}}>Sell</ActionButton> </li>
+             <ActionButton dispatch={dispatch} action="TRADE" payload={{item:name,amount:1}}>Buy</ActionButton>
+             <ActionButton dispatch={dispatch} action="TRADE" payload={{item:name,amount:-1}}>Sell</ActionButton> </li>
             ))}
         </ul>
 

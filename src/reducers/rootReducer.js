@@ -9,7 +9,6 @@ const rootReducer = (state, action) => {
                 ...state,
                 money: (state.money * action.rate || 1.01)
             }
-            break;
         case 'RANDOMISE_PRICES':
 
             return {
@@ -18,7 +17,6 @@ const rootReducer = (state, action) => {
                 prices: action.prices
             }
 
-            break;
         case 'TRADE':
             const {amount,item}=action.payload;
             const {place,planets,money,inventory}=state;
@@ -41,14 +39,13 @@ const rootReducer = (state, action) => {
                 }
                 
             }
-            return {...state,money:money-price*amount,inventory:inventory.map(el=>el[0]==item?[el[0],el[1]+amount]:el)}
+            return {...state,money:money-price*amount,inventory:inventory.map(el=>el[0]===item?[el[0],el[1]+amount]:el)}
 
-            break;
         case 'TRAVEL':
             const {destination,distance}=action.payload
             const fuel=player.getItemCount(state.inventory,"fuel")
             if (fuel<distance) return state;
-            return {...state,inventory:state.inventory.map(el=>el[0]=="fuel"?["fuel",fuel-distance]:el),place:destination}
+            return {...state,inventory:state.inventory.map(el=>el[0]==="fuel"?["fuel",fuel-distance]:el),place:destination}
         case 'TURN':
             const turns=action.payload
             return game.turn(turns,state);

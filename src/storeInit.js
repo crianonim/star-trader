@@ -3,7 +3,6 @@ import {
 } from 'redux';
 import rootReducer from "./reducers/rootReducer";   
 
-const randInt = (max) => (Math.random() * max) >> 0;
 
 const storeInit=()=>{
 
@@ -52,7 +51,7 @@ const storeInit=()=>{
         ],
         
         inventory: [
-            ["fuel", 100],
+            ["fuel", 30],
             ["food", 0],
             ["electronics", 0],
             ["minerals", 20]
