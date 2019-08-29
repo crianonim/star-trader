@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "08287b0db88af64d52cf73c4dd79f618",
+    "revision": "6e4db94222c3f7404415f12cf02006e1",
     "url": "/star-trader/index.html"
   },
   {
-    "revision": "2813eed2007867011964",
+    "revision": "13a66bc30c830fc89582",
     "url": "/star-trader/static/css/main.2cce8147.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-trader/static/js/2.f0705b4c.chunk.js"
   },
   {
-    "revision": "2813eed2007867011964",
-    "url": "/star-trader/static/js/main.f22d2ac4.chunk.js"
+    "revision": "13a66bc30c830fc89582",
+    "url": "/star-trader/static/js/main.b913c1e0.chunk.js"
   },
   {
     "revision": "59177adbed7e08fc4b68",
