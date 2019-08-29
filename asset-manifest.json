@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/star-trader/static/css/main.34de6062.chunk.css",
-    "main.js": "/star-trader/static/js/main.fe55525f.chunk.js",
-    "main.js.map": "/star-trader/static/js/main.fe55525f.chunk.js.map",
+    "main.css": "/star-trader/static/css/main.c38b2907.chunk.css",
+    "main.js": "/star-trader/static/js/main.09678e58.chunk.js",
+    "main.js.map": "/star-trader/static/js/main.09678e58.chunk.js.map",
     "runtime~main.js": "/star-trader/static/js/runtime~main.d9f1fe9f.js",
     "runtime~main.js.map": "/star-trader/static/js/runtime~main.d9f1fe9f.js.map",
-    "static/js/2.67b75362.chunk.js": "/star-trader/static/js/2.67b75362.chunk.js",
-    "static/js/2.67b75362.chunk.js.map": "/star-trader/static/js/2.67b75362.chunk.js.map",
+    "static/js/2.30a267c9.chunk.js": "/star-trader/static/js/2.30a267c9.chunk.js",
+    "static/js/2.30a267c9.chunk.js.map": "/star-trader/static/js/2.30a267c9.chunk.js.map",
     "index.html": "/star-trader/index.html",
-    "precache-manifest.1a448a0622007ee3bfbff5e2fe3d9b7f.js": "/star-trader/precache-manifest.1a448a0622007ee3bfbff5e2fe3d9b7f.js",
+    "precache-manifest.04da4cb9dde6818cdef306abd7de0d0a.js": "/star-trader/precache-manifest.04da4cb9dde6818cdef306abd7de0d0a.js",
     "service-worker.js": "/star-trader/service-worker.js",
-    "static/css/main.34de6062.chunk.css.map": "/star-trader/static/css/main.34de6062.chunk.css.map"
+    "static/css/main.c38b2907.chunk.css.map": "/star-trader/static/css/main.c38b2907.chunk.css.map"
   }
 }
