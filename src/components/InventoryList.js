@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -13,6 +13,7 @@ import TimelapseIcon from '@material-ui/icons/Timelapse';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import * as trade from '../game-logic/trade';
 import {useSelector} from 'react-redux';
+import ActionButton from './ActionButton';
 const styles = theme => ({
     root: { flexGrow: 1,marginTop:100 },
     flex: { flex: 1 },
@@ -20,13 +21,18 @@ const styles = theme => ({
     align:{display:'flex',alignItems:'center'},
     horMar:{marginLeft: 10,marginRight:10,display:'flex',alignItems:'center'},
     topMargin:{marginTop:80},
+    textAlignCenter:{textAlign:'center'},
+    selectedRow:{backgroundColor:'lightblue'}
   });
 
   export default withStyles(styles)(({classes})=> {
+      const [selectedRow,setSelectedRow]=useState(null);
       const {inventory,place,planets} =useSelector((state)=>state);
       const planet=planets.find(el=>el.name===place)
       return (
-          <Table className={classes.topMargin}>
+        <div  className={classes.topMargin}>
+            <Typography variant="h6">Cargo</Typography>
+          <Table>
               <TableHead>
                   <TableRow>
                       <TableCell>Item</TableCell>
@@ -38,14 +44,22 @@ const styles = theme => ({
               </TableHead>
               <TableBody>
                   {inventory.map( ([itemName,amount],i)=>(
-                      <TableRow key={itemName}>
+                      <TableRow  className={selectedRow===itemName?classes.selectedRow:""} onClick={()=>setSelectedRow(itemName)} key={itemName}>
+                      {/* <TableRow color="primary" className={selectedRow===i?classes.selectedRow:""} onClick={()=>setSelectedRow(i)} key={itemName}> */}
+
                           <TableCell>{itemName}</TableCell>
                           <TableCell>{amount}</TableCell>
                           <TableCell>{trade.calculatePrice(planet,itemName)}</TableCell>
-
                       </TableRow>
                   ))}
               </TableBody>
           </Table>
+          {(selectedRow!=null)&&(<div className={classes.align}>
+              <ActionButton action="TRADE" payload={{item:selectedRow,amount:1}}>Buy</ActionButton>
+              <div className={classes.flex+" "+classes.textAlignCenter}>1</div>
+              <ActionButton action="TRADE" payload={{item:selectedRow,amount:-1}}>Sell</ActionButton>
+
+          </div>)}
+        </div>
       )
   });

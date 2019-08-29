@@ -13,13 +13,7 @@ const Main = (props)=>{
     return (
         <>
         <InventoryList/>
-        <h1>Star Trader</h1>
-        <h2>Turn {turn}, You are on planet {planet.name}</h2>
-        <p>Money: {money}</p>
-        <h3>You have in your inventory:</h3>
-        <ul>
-            {inventory.map(([name,amount])=>(<li key={name}>{name} - {amount}</li>))}
-        </ul>
+       
         <h3>You can travel to:</h3>
         <ul>
         {planet.routes.map( ([name,distance])=>(<li key={name}>{name} - {distance} <ActionButton action="TRAVEL" payload={{state,destination:name}} >Travel</ActionButton></li>))}
