@@ -13,7 +13,8 @@ const styles = theme => ({
     horMar:{marginLeft: 10,marginRight:10,display:'flex',alignItems:'center'},
     topMargin:{marginTop:80},
     textAlignCenter:{textAlign:'center'},
-    selectedRow:{backgroundColor:'#5e6ec9',color:'white'},
+    verSpace:{marginTop:'1rem'},
+    selectedRow:{backgroundColor:'#3f51b5',color:'white'},
   });
 
   export default withStyles(styles)(({classes})=> {
@@ -37,19 +38,21 @@ const styles = theme => ({
                   {inventory.map( ([itemName,amount],i)=>(
                       <TableRow  className={selectedRow===itemName?classes.selectedRow:""}
                        onClick={()=>setSelectedRow(itemName)} key={itemName}>
-                          <TableCell color="inherit">{itemName}</TableCell>
-                          <TableCell>{amount}</TableCell>
-                          <TableCell>{trade.calculatePrice(planet,itemName)}</TableCell>
+                          <TableCell className={selectedRow===itemName?classes.selectedRow:""} color="inherit">{itemName}</TableCell>
+                          <TableCell className={selectedRow===itemName?classes.selectedRow:""} >{amount}</TableCell>
+                          <TableCell className={selectedRow===itemName?classes.selectedRow:""} >{trade.calculatePrice(planet,itemName)}</TableCell>
                       </TableRow>
                   ))}
               </TableBody>
           </Table>
+          <div className={classes.verSpace}>
           {(selectedRow!=null)&&(<div className={classes.align}>
-              <ActionButton action="TRADE" payload={{item:selectedRow,amount:1}}>Buy</ActionButton>
-              <div className={classes.flex+" "+classes.textAlignCenter}>1</div>
-              <ActionButton action="TRADE" payload={{item:selectedRow,amount:-1}}>Sell</ActionButton>
+              <ActionButton color="primary"variant="contained" action="TRADE" payload={{item:selectedRow,amount:1}}>Buy</ActionButton>
+              <div className={classes.flex+" "+classes.textAlignCenter}>Amount: 1</div>
+              <ActionButton color="secondary"variant="contained" action="TRADE" payload={{item:selectedRow,amount:-1}}>Sell</ActionButton>
 
           </div>)}
+    </div>          
         </div>
       )
   });

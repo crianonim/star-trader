@@ -39,7 +39,7 @@ const styles = theme => ({
                   <TableRow>
                       <TableCell>Destination</TableCell>
                       <TableCell>Distance</TableCell>
-                      <TableCell>Tarvel</TableCell>
+                      <TableCell>Travel</TableCell>
                      
 
                   </TableRow>
