@@ -15,6 +15,8 @@ const styles = theme => ({
     textAlignCenter:{textAlign:'center'},
     verSpace:{marginTop:'1rem'},
     selectedRow:{backgroundColor:'#3f51b5',color:'white'},
+    padded:{padding:10},
+    fullWidth:{width:'100%'}
   });
 
   export default withStyles(styles)(({classes})=> {
@@ -22,8 +24,8 @@ const styles = theme => ({
       const {inventory,place,planets} =useSelector((state)=>state);
       const planet=planets.find(el=>el.name===place)
       return (
-        <div  className={classes.root}>
-            <Typography align="center" variant="h6">Cargo</Typography>
+        <div className={classes.fullWidth}>
+           <Typography>Your current cargo and local prices if you wish to trade.</Typography>
           <Table>
               <TableHead>
                   <TableRow>
@@ -48,7 +50,7 @@ const styles = theme => ({
           <div className={classes.verSpace}>
           {(selectedRow!=null)&&(<div className={classes.align}>
               <ActionButton color="primary"variant="contained" action="TRADE" payload={{item:selectedRow,amount:1}}>Buy</ActionButton>
-              <div className={classes.flex+" "+classes.textAlignCenter}>Amount: 1</div>
+              <Typography className={classes.flex+" "+classes.textAlignCenter}>Amount: 1</Typography>
               <ActionButton color="secondary"variant="contained" action="TRADE" payload={{item:selectedRow,amount:-1}}>Sell</ActionButton>
 
           </div>)}

@@ -23,7 +23,8 @@ const styles = theme => ({
     topMargin:{marginTop:80},
     textAlignCenter:{textAlign:'center'},
     selectedRow:{backgroundColor:'#5e6ec9',color:'white'},
-    vertMargin:{marginTop:20,marginBottom:10,padding:10}
+    vertMargin:{marginTop:20,marginBottom:10,padding:10},
+    fullWidth:{width:'100%'}
 
   });
 
@@ -32,8 +33,8 @@ const styles = theme => ({
       const {planets,place}=state;
       const planet=planets.find(el=>el.name===place);
       return (
-      <div className={classes.vertMargin}>
-          <Typography align="center" variant="h6">Travel</Typography>
+      <div className={classes.fullWidth} >
+         <Typography>You can travel from here...</Typography>
             <Table>
               <TableHead>
                   <TableRow>
