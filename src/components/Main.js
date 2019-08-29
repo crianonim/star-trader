@@ -1,7 +1,8 @@
 import React from 'react'
 import {useSelector} from 'react-redux';
 import ActionButton from './ActionButton';
-import * as trade from '../game-logic/trade'
+import * as trade from '../game-logic/trade';
+import InventoryList from './InventoryList';
 const Main = (props)=>{
     const state=useSelector((state)=>state)
     const {turn,place}=state;
@@ -11,6 +12,7 @@ const Main = (props)=>{
     const planet=planets.find(p=>p.name===place)
     return (
         <>
+        <InventoryList/>
         <h1>Star Trader</h1>
         <h2>Turn {turn}, You are on planet {planet.name}</h2>
         <p>Money: {money}</p>
