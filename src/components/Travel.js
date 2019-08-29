@@ -23,43 +23,38 @@ const styles = theme => ({
     topMargin:{marginTop:80},
     textAlignCenter:{textAlign:'center'},
     selectedRow:{backgroundColor:'#5e6ec9',color:'white'},
+    vertMargin:{marginTop:20,marginBottom:10}
+
   });
 
   export default withStyles(styles)(({classes})=> {
-      const [selectedRow,setSelectedRow]=useState(null);
-      const {inventory,place,planets} =useSelector((state)=>state);
-      const planet=planets.find(el=>el.name===place)
+      const state=useSelector((state)=>state);
+      const {planets,place}=state;
+      const planet=planets.find(el=>el.name===place);
       return (
-        <div  className={classes.root}>
-            <Typography align="center" variant="h6">Cargo</Typography>
-          <Table>
+      <div className={classes.vertMargin}>
+          <Typography align="center" variant="h6">Travel</Typography>
+            <Table>
               <TableHead>
                   <TableRow>
-                      <TableCell>Item</TableCell>
-                      <TableCell>Amount</TableCell>
-                      <TableCell>Local Price</TableCell>
+                      <TableCell>Destination</TableCell>
+                      <TableCell>Distance</TableCell>
+                      <TableCell>Tarvel</TableCell>
                      
 
                   </TableRow>
               </TableHead>
               <TableBody>
-                  {inventory.map( ([itemName,amount],i)=>(
-                      <TableRow  className={selectedRow===itemName?classes.selectedRow:""} onClick={()=>setSelectedRow(itemName)} key={itemName}>
-                      {/* <TableRow color="primary" className={selectedRow===i?classes.selectedRow:""} onClick={()=>setSelectedRow(i)} key={itemName}> */}
-
-                          <TableCell color="inherit">{itemName}</TableCell>
-                          <TableCell>{amount}</TableCell>
-                          <TableCell>{trade.calculatePrice(planet,itemName)}</TableCell>
+              {planet.routes.map( ([name,distance])=>(
+                  <TableRow>
+                      <TableCell>{name}</TableCell>
+                      <TableCell>{distance}</TableCell>
+                      <TableCell> <ActionButton variant="contained" action="TRAVEL" payload={{state,destination:name}} >Travel</ActionButton></TableCell>
                       </TableRow>
-                  ))}
+              ))}
               </TableBody>
-          </Table>
-          {(selectedRow!=null)&&(<div className={classes.align}>
-              <ActionButton action="TRADE" payload={{item:selectedRow,amount:1}}>Buy</ActionButton>
-              <div className={classes.flex+" "+classes.textAlignCenter}>1</div>
-              <ActionButton action="TRADE" payload={{item:selectedRow,amount:-1}}>Sell</ActionButton>
-
-          </div>)}
-        </div>
-      )
-  });
+            </Table>
+       
+      </div>
+              )
+  })

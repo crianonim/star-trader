@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import ActionButton from './ActionButton';
 import * as trade from '../game-logic/trade';
 import InventoryList from './InventoryList';
+import Travel from './Travel';
 const Main = (props)=>{
     const state=useSelector((state)=>state)
     const {turn,place}=state;
@@ -13,21 +14,9 @@ const Main = (props)=>{
     return (
         <>
         <InventoryList/>
-       
-        <h3>You can travel to:</h3>
-        <ul>
-        {planet.routes.map( ([name,distance])=>(<li key={name}>{name} - {distance} <ActionButton action="TRAVEL" payload={{state,destination:name}} >Travel</ActionButton></li>))}
-        </ul>
-        <h3>You can trade here:</h3>
-        <ul>
-            {inventory.map(([name,amount])=>(<li key={name}>{name} - you have: {amount}  price: {trade.calculatePrice(planet,name)} 
-             <ActionButton action="TRADE" payload={{item:name,amount:1}}>Buy</ActionButton>
-             <ActionButton  action="TRADE" payload={{item:name,amount:-1}}>Sell</ActionButton> </li>
-            ))}
-        </ul>
-
-        <div className="list">
-        </div>
+        <Travel></Travel>
+        
+        
         </>
     )
 }
