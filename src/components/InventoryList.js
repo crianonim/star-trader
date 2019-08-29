@@ -28,8 +28,8 @@ const styles = theme => ({
               <TableHead>
                   <TableRow>
                       <TableCell>Item</TableCell>
-                      <TableCell>Amount</TableCell>
-                      <TableCell>Local Price</TableCell>
+                      <TableCell align="right" >Amount</TableCell>
+                      <TableCell align="right" >Local Price</TableCell>
                      
 
                   </TableRow>
@@ -39,8 +39,8 @@ const styles = theme => ({
                       <TableRow  className={selectedRow===itemName?classes.selectedRow:""}
                        onClick={()=>setSelectedRow(itemName)} key={itemName}>
                           <TableCell className={selectedRow===itemName?classes.selectedRow:""} color="inherit">{itemName}</TableCell>
-                          <TableCell className={selectedRow===itemName?classes.selectedRow:""} >{amount}</TableCell>
-                          <TableCell className={selectedRow===itemName?classes.selectedRow:""} >{trade.calculatePrice(planet,itemName)}</TableCell>
+                          <TableCell align="right" className={selectedRow===itemName?classes.selectedRow:""} >{amount}</TableCell>
+                          <TableCell align="right" className={selectedRow===itemName?classes.selectedRow:""} >{trade.calculatePrice(planet,itemName)}</TableCell>
                       </TableRow>
                   ))}
               </TableBody>
