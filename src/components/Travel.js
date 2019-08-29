@@ -23,7 +23,7 @@ const styles = theme => ({
     topMargin:{marginTop:80},
     textAlignCenter:{textAlign:'center'},
     selectedRow:{backgroundColor:'#5e6ec9',color:'white'},
-    vertMargin:{marginTop:20,marginBottom:10}
+    vertMargin:{marginTop:20,marginBottom:10,padding:10}
 
   });
 

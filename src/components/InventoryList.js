@@ -6,7 +6,7 @@ import * as trade from '../game-logic/trade';
 import {useSelector} from 'react-redux';
 import ActionButton from './ActionButton';
 const styles = theme => ({
-    root: { flexGrow: 1,marginTop:100 },
+    root: { flexGrow: 1,marginTop:100 ,padding:10},
     flex: { flex: 1 },
     menuButton: { marginLeft: -12, marginRight: 10 },
     align:{display:'flex',alignItems:'center'},
