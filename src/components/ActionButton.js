@@ -4,9 +4,8 @@ import * as conditions from '../game-logic/conditions';
 
 const ActionButton = ({children,action,payload})=>{
     const dispatch=useDispatch();
-    // console.log("AB",{payload})
-    const canAct=conditions[action.type]?conditions[action.type](payload):true;
-     
+    const canAct=conditions[action]?conditions[action](payload):true;
+    //  console.log(canAct,action,conditions[action])
     return ( <button disabled={!canAct} onClick={()=>{
            dispatch({type:action,payload})
         }}>{children}</button>
