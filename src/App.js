@@ -1,15 +1,13 @@
 import React from 'react';
-import './App.css';
 import {Provider} from 'react-redux';
-import storeInit from './storeInit'
+import getStoreInstance from './reducers/storeInit'
 
-import Main from './Main';
+import Main from './components/Main';
 
-const store=storeInit();
+const store=getStoreInstance();
 
 function App() {
   return (
-
     <Provider store={store}>
      <div className="App">
        <Main></Main>

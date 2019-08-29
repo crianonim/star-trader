@@ -42,9 +42,10 @@ const rootReducer = (state, action) => {
             return {...state,money:money-price*amount,inventory:inventory.map(el=>el[0]===item?[el[0],el[1]+amount]:el)}
 
         case 'TRAVEL':
-            const {destination,distance}=action.payload
-            const fuel=player.getItemCount(state.inventory,"fuel")
-            if (fuel<distance) return state;
+            const {destination}=action.payload
+            const {fuel,distance,valid}=state.actionData
+            console.log("ACTION",valid,fuel,distance)
+            if (!valid) return state;
             return {...state,inventory:state.inventory.map(el=>el[0]==="fuel"?["fuel",fuel-distance]:el),place:destination}
         case 'TURN':
             const turns=action.payload
