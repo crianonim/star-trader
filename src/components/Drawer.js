@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import Typography from "@material-ui/core/Typography";
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow, Divider } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow, Divider, Snackbar } from "@material-ui/core";
 import { withStyles, useTheme, makeStyles } from "@material-ui/styles";
 import * as trade from '../game-logic/trade';
 import {useSelector} from 'react-redux';
@@ -19,8 +19,16 @@ const useStyles = makeStyles(theme =>  ({
 export default (props)=>{
     const classes=useStyles(props);
     const dispatch=useDispatch();
+    const [snackbarOpen,setSnackbarOpen]=useState(false);
+    const [snackbarMessage,setSnackbarMessage]=useState('');
+
+    const showMessage=(msg)=>{
+        setSnackbarMessage(msg);setSnackbarOpen(true)
+    }
     console.log("saved",isSaved())
     return (
+        <div>
+
         <Drawer  open={props.open} onClose={props.handleDrawerClose}>
             <div className={classes.padded}>
             <Typography  variant="h6">StarTrader</Typography>
@@ -28,20 +36,22 @@ export default (props)=>{
 
             <Divider/>
             <List>
-                <ListItem button onClick={()=>dispatch({type:"SAVE"})}>
+                <ListItem button onClick={()=>{dispatch({type:"SAVE"});showMessage("Game saved successfully!")}}>
                     <ListItemIcon><SaveIcon/></ListItemIcon>
                     <ListItemText>Save Game</ListItemText>
                 </ListItem>
-                <ListItem disabled={!isSaved()} button onClick={()=>{props.handleDrawerClose();dispatch({type:"LOAD"})}}>
+                <ListItem disabled={!isSaved()} button onClick={()=>{props.handleDrawerClose();dispatch({type:"LOAD"});showMessage("Save game loaded.")}}>
                     <ListItemIcon><SaveOutlinedIcon/></ListItemIcon>
                     <ListItemText>Load Game</ListItemText>
                 </ListItem>
-                <ListItem  button onClick={()=>dispatch({type:"RESET"})}>
+                <ListItem  button onClick={()=>{dispatch({type:"RESET"});showMessage("Restarted.")}}>
                     <ListItemIcon><RefreshIcon/></ListItemIcon>
                     <ListItemText>Restart</ListItemText>
                 </ListItem>
             </List>
             </div>
         </Drawer>
+            <Snackbar open={snackbarOpen} message={snackbarMessage}  autoHideDuration={2000} onClose={()=>setSnackbarOpen(false)} />
+        </div>
     )
 }
