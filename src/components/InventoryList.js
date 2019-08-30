@@ -16,7 +16,7 @@ const styles = theme => {console.log({theme},theme.palette.primary); return ({
     textAlignCenter:{textAlign:'center'},
     verSpace:{marginTop:'1rem'},
     selectedRow:{backgroundColor:theme.palette.primary.light,
-        '& .amount':{color:theme.palette.getContrastText(theme.palette.primary.light)}
+        '& td':{color:theme.palette.getContrastText(theme.palette.primary.light)}
     
     },
   });
