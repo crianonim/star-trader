@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow, Tooltip } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import MenuIcon from '@material-ui/icons/Menu';
 import HelpIcon  from '@material-ui/icons/Help';
@@ -39,7 +39,7 @@ const styles = theme => ({
                   <TableRow>
                       <TableCell>Destination</TableCell>
                       <TableCell align="center">Distance</TableCell>
-                      <TableCell align="right">Action</TableCell>
+                      <TableCell align="right"><Tooltip title="What can you do"><span>Action</span></Tooltip></TableCell>
                      
 
                   </TableRow>
@@ -49,7 +49,9 @@ const styles = theme => ({
                   <TableRow key={name}>
                       <TableCell>{name}</TableCell>
                       <TableCell align="center">{distance}</TableCell>
-                      <TableCell align="right"> <ActionButton variant="contained" action="TRAVEL" payload={{state,destination:name}} >Travel</ActionButton></TableCell>
+                      <TableCell align="right">
+                          <ActionButton disabledLabel="Not enough fuel" variant="contained" action="TRAVEL" payload={{state,destination:name}} >Travel</ActionButton>
+                      </TableCell>
                       </TableRow>
               ))}
               </TableBody>
