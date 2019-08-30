@@ -15,7 +15,7 @@ const styles = theme => ({
     horMar:{marginLeft: 10,marginRight:10,display:'flex',alignItems:'center'},
   });
 
-  export default withStyles(styles)(({classes,title})=> {
+  export default withStyles(styles)(({classes})=> {
     const {money,place,turn}=useSelector((state)=>state)
     return (
         <AppBar position="fixed">

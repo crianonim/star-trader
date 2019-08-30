@@ -22,7 +22,6 @@ const styles = theme => ({
     horMar:{marginLeft: 10,marginRight:10,display:'flex',alignItems:'center'},
     topMargin:{marginTop:80},
     textAlignCenter:{textAlign:'center'},
-    selectedRow:{backgroundColor:'#5e6ec9',color:'white'},
     vertMargin:{marginTop:20,marginBottom:10}
 
   });

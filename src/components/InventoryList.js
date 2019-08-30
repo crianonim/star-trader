@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Typography from "@material-ui/core/Typography";
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow } from "@material-ui/core";
-import { withStyles } from "@material-ui/styles";
+import { withStyles, useTheme } from "@material-ui/styles";
 import * as trade from '../game-logic/trade';
 import {useSelector} from 'react-redux';
 import ActionButton from './ActionButton';
-const styles = theme => ({
+
+const styles = theme => {console.log({theme},theme.palette.primary); return ({
     root: { flexGrow: 1,marginTop:100 },
     flex: { flex: 1 },
     menuButton: { marginLeft: -12, marginRight: 10 },
@@ -14,13 +15,16 @@ const styles = theme => ({
     topMargin:{marginTop:80},
     textAlignCenter:{textAlign:'center'},
     verSpace:{marginTop:'1rem'},
-    selectedRow:{backgroundColor:'#3f51b5',color:'white'},
+    selectedRow:{backgroundColor:theme.palette.primary.light,color:'white'},
   });
-
+}
   export default withStyles(styles)(({classes})=> {
       const [selectedRow,setSelectedRow]=useState(null);
       const {inventory,place,planets} =useSelector((state)=>state);
       const planet=planets.find(el=>el.name===place)
+      const tt=useTheme()
+      
+      console.log({tt})
       return (
         <div  className={classes.root}>
             <Typography align="center" variant="h6">Cargo</Typography>
