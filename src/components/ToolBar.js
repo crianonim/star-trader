@@ -16,13 +16,13 @@ const styles = theme => ({
     horMar:{marginLeft: 10,marginRight:10,display:'flex',alignItems:'center'},
   });
 
-  export default withStyles(styles)(({classes,toggleTheme})=> {
+  export default withStyles(styles)(({classes,toggleTheme,handleDrawerOpen})=> {
     const {money,place,turn}=useSelector((state)=>state)
     
     return (
         <AppBar position="fixed">
             <Toolbar>
-                <IconButton color="inherit" className={classes.menuButton} onClick={()=>{}}>
+                <IconButton color="inherit" className={classes.menuButton} onClick={handleDrawerOpen}>
                 <MenuIcon />
                 </IconButton>
                 <div className={classes.flex+" "+classes.align}>
