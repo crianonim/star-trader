@@ -5,7 +5,7 @@ const rootReducer = (state, action) => {
     switch (action.type) {
         case 'SAVE':
             saveGame(state);
-            return state;
+            return {...state};
         case 'LOAD':
             return loadGame();
         case 'RESET':
