@@ -13,11 +13,11 @@ function App() {
     <Provider store={store}>
      <ThemeProvider theme={theme}>
       <CssBaseline />
-     <div className="App">
-      <ToolBar/>
-      <Main></Main>
+      <div className="App">
+       <ToolBar/>
+       <Main></Main>
      </div>
-</ThemeProvider>
+     </ThemeProvider>
     </Provider>
   );
 }

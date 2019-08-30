@@ -15,7 +15,10 @@ const styles = theme => {console.log({theme},theme.palette.primary); return ({
     topMargin:{marginTop:80},
     textAlignCenter:{textAlign:'center'},
     verSpace:{marginTop:'1rem'},
-    selectedRow:{backgroundColor:theme.palette.primary.light,color:'white'},
+    selectedRow:{backgroundColor:theme.palette.primary.light,
+        '& .amount':{color:theme.palette.getContrastText(theme.palette.primary.light)}
+    
+    },
   });
 }
   export default withStyles(styles)(({classes})=> {
@@ -42,9 +45,9 @@ const styles = theme => {console.log({theme},theme.palette.primary); return ({
                   {inventory.map( ([itemName,amount],i)=>(
                       <TableRow  className={selectedRow===itemName?classes.selectedRow:""}
                        onClick={()=>setSelectedRow(itemName)} key={itemName}>
-                          <TableCell className={selectedRow===itemName?classes.selectedRow:""} color="inherit">{itemName}</TableCell>
-                          <TableCell align="right" className={selectedRow===itemName?classes.selectedRow:""} >{amount}</TableCell>
-                          <TableCell align="right" className={selectedRow===itemName?classes.selectedRow:""} >{trade.calculatePrice(planet,itemName)}</TableCell>
+                          <TableCell >{itemName}</TableCell>
+                          <TableCell className="amount" align="right" >{amount}</TableCell>
+                          <TableCell align="right"  >{trade.calculatePrice(planet,itemName)}</TableCell>
                       </TableRow>
                   ))}
               </TableBody>

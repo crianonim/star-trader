@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import InventoryList from './InventoryList';
 import Travel from './Travel';
 import { Container } from '@material-ui/core';
-const Main = (props)=>{
+const Main = ()=>{
     return (
         <div>
          <Container maxWidth="sm">

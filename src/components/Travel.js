@@ -45,7 +45,7 @@ const styles = theme => ({
               </TableHead>
               <TableBody>
               {planet.routes.map( ([name,distance])=>(
-                  <TableRow>
+                  <TableRow key={name}>
                       <TableCell>{name}</TableCell>
                       <TableCell align="center">{distance}</TableCell>
                       <TableCell align="right"> <ActionButton variant="contained" action="TRAVEL" payload={{state,destination:name}} >Travel</ActionButton></TableCell>
