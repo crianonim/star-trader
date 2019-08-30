@@ -32,6 +32,9 @@ const styles = theme => ({
       const planet=planets.find(el=>el.name===place);
       return (
       <div className={classes.vertMargin}>
+          <ActionButton action="SAVE">Save</ActionButton>
+          <ActionButton action="LOAD">Load</ActionButton>
+
           <Typography align="center" variant="h6">Travel</Typography>
             <Table>
               <TableHead>

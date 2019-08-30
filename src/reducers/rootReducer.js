@@ -1,7 +1,12 @@
 import * as trade from '../game-logic/trade';
-
+import {saveGame, loadGame} from '../game-logic/index'
 const rootReducer = (state, action) => {
     switch (action.type) {
+        case 'SAVE':
+            saveGame(state);
+            return state;
+        case 'LOAD':
+            return loadGame();
         case 'INTEREST':
             return {
                 ...state,
