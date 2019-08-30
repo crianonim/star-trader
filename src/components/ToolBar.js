@@ -1,10 +1,11 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab, Button } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import MenuIcon from '@material-ui/icons/Menu';
 import PublicIcon from '@material-ui/icons/Public'
 import TimelapseIcon from '@material-ui/icons/Timelapse';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
+import BrightnessMediumIcon from '@material-ui/icons/BrightnessMedium';
 
 import {useSelector} from 'react-redux';
 const styles = theme => ({
@@ -15,8 +16,9 @@ const styles = theme => ({
     horMar:{marginLeft: 10,marginRight:10,display:'flex',alignItems:'center'},
   });
 
-  export default withStyles(styles)(({classes})=> {
+  export default withStyles(styles)(({classes,toggleTheme})=> {
     const {money,place,turn}=useSelector((state)=>state)
+    
     return (
         <AppBar position="fixed">
             <Toolbar>
@@ -28,6 +30,9 @@ const styles = theme => ({
                     <span className={classes.horMar}><LocalAtmIcon/> {money} </span> 
                     <span className={classes.horMar}><PublicIcon/> {place}</span>
                 </div>
+                    <IconButton onClick={toggleTheme}>
+                        <BrightnessMediumIcon/>
+                    </IconButton>
                </Toolbar>
         </AppBar>
     )
