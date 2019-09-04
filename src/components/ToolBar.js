@@ -30,7 +30,7 @@ const styles = theme => ({
                     <span className={classes.horMar}><LocalAtmIcon/> {money} </span> 
                     <span className={classes.horMar}><PublicIcon/> {place}</span>
                 </div>
-                    <IconButton onClick={toggleTheme}>
+                    <IconButton onClick={toggleTheme} className="themeButton">
                         <BrightnessMediumIcon/>
                     </IconButton>
                </Toolbar>
