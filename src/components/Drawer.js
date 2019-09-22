@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import Typography from "@material-ui/core/Typography";
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Drawer, List, ListItem, ListItemText, ListItemIcon, ListSubheader, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow, Divider, Snackbar } from "@material-ui/core";
-import { withStyles, useTheme, makeStyles } from "@material-ui/styles";
-import * as trade from '../game-logic/trade';
-import {useSelector} from 'react-redux';
-import ActionButton from './ActionButton';
+import { Drawer, List, ListItem, ListItemText, ListItemIcon,  Divider, Snackbar } from "@material-ui/core";
+import {  makeStyles } from "@material-ui/styles";
 import {isSaved} from '../game-logic/index'
 import SaveIcon from '@material-ui/icons/Save';
 import RefreshIcon from '@material-ui/icons/Refresh';
@@ -25,7 +22,6 @@ export default (props)=>{
     const showMessage=(msg)=>{
         setSnackbarMessage(msg);setSnackbarOpen(true)
     }
-    console.log("saved",isSaved())
     return (
         <div>
 
