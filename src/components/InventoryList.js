@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import ActionButton from "./ActionButton";
 
 const styles = theme => {
-  console.log({ theme }, theme.palette.primary);
+//   console.log({ theme }, theme.palette.primary);
   return {
     root: { flexGrow: 1, marginTop: 100 },
     flex: { flex: 1 },
