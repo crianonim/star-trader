@@ -1,4 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# star-trader
+
+Get rich in a web space trading game
+
+![](https://i.imgur.com/KYxvVMA.png)
+
+## Problem / Requirements
+I would like to...
+- play a game in which I am a trader in space!
+- travel between trading posts on different planets
+- buy and sell goods at changing prices and make profit
+## Tech stack used to solve
+- React with hooks
+- React Material-UI
+- Redux
+## Learning Outcomes
+- Using React Material-UI component library for a polished look
+- Customising the app theme
+- CSS-in-JS and styled components
+- Using Redux effectively, dealing with the problem of random changes needed for the app while keeping the reducers pure and predictable
+
 
 ## Available Scripts
 
