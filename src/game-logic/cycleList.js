@@ -1,8 +1,11 @@
-export default inital => {
+const cycleList= (inital,pointer=0) => {
   if (!Array.isArray(inital)) throw new Error("Inital value has to an array");
-  let pointer = 0;
   return {
-    next() {},
-    copy() {}
+    next() {
+        return inital[pointer++]},
+    copy() {
+        return cycleList(inital,pointer)}
   };
 };
+
+export default cycleList

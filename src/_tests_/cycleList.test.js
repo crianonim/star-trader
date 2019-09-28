@@ -9,3 +9,12 @@ it("has accepts only Arrays as initial values",()=>{
     expect(()=>cycleList([1,2,3])).not.toThrow();
     expect(()=>cycleList("bad")).toThrow();
 })
+
+it("copies values as expected",()=>{
+    const list=cycleList([1,2,3]);
+    list.next();
+    list.next();
+    const copiedList=list.copy();
+    expect(list===copiedList).toBe(false)
+    expect(copiedList.next()).toBe(list.next())
+})
