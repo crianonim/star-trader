@@ -24,13 +24,13 @@ export const takeTurn=(n,state)=>{
     for (let i=0;i<n;i++){
         console.log("End of turn ",turn);
         turn++;
-        planets=planets.map(planet=>({...planet,prices:changePlanetFluct(planet.prices)}))
+        planets=planets.map(planet=>({...planet,prices:changePlanetFluct(planet.prices,state)}))
     }
     return {...state,turn,planets}
 }
-export const rng=(max)=>{
-    return (Math.random()*max)>>0
+export const rng=(max,state)=>{
+    return (state.rng.next()*max)>>0
 }
-const changePlanetFluct=(prices=>prices.map( price=>[price[0],price[1],changePricePluct( price[2])] ))
+const changePlanetFluct=((prices,state)=>prices.map( price=>[price[0],price[1],changePricePluct( price[2],state)] ))
 
-const changePricePluct=(fluct)=>Math.max(-10,Math.min(10,fluct+(2-rng(5))));
+const changePricePluct=(fluct,state)=>Math.max(-10,Math.min(10,fluct+(2-rng(5,state))));

@@ -15,22 +15,13 @@ const rootReducer = (state, action) => {
                 ...state,
                 money: (state.money * action.rate || 1.01)
             }
-        case 'RANDOMISE_PRICES':
-
-            return {
-                ...state,
-                inventory:{...state.inventory,fuel:state.inventory.fuel-10},
-                prices: action.prices
-            }
-
+      
         case 'TRADE':
             const {amount,item}=action.payload;
             const {place,planets,money,inventory}=state;
             const planet=planets.find(el=>el.name===place)
             const price=trade.calculatePrice(planet,item)
 
-            // console.log(amount,state.inventory[item])
-            //buy
             if (amount>0){
                 if (price*amount>money){
                     console.log("Not enough money");
