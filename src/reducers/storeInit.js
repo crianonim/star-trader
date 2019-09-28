@@ -2,11 +2,12 @@ import { createStore } from "redux";
 import preReducer from './preReducer';
 import turnReducer from './turnReducer';
 import rootReducer from "./rootReducer";
-
+import cycleList from "../game-logic/cycleList";
 export const initialState={
   money: 500,
   turn: 1,
   place: "Ereb",
+  rng:cycleList(Array(100).fill(0).map(Math.random)),
   planets: [
     {
       name: "Ereb",
