@@ -18,3 +18,14 @@ it("copies values as expected",()=>{
     expect(list===copiedList).toBe(false)
     expect(copiedList.next()).toBe(list.next())
 })
+
+it("cycles values correctly",()=>{
+    const list=cycleList([1,2,3]);
+    expect(list.next()).toBe(1);
+    expect(list.next()).toBe(2);    
+    expect(list.next()).toBe(3);    
+    expect(list.next()).toBe(1);
+    expect(list.next()).toBe(2);    
+    expect(list.next()).toBe(3);    
+    expect(list.next()).toBe(1);    
+})

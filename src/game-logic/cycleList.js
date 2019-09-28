@@ -1,10 +1,13 @@
-const cycleList= (inital,pointer=0) => {
-  if (!Array.isArray(inital)) throw new Error("Inital value has to an array");
+const cycleList= (array,pointer=-1) => {
+  if (!Array.isArray(array)) throw new Error("Inital value has to an array");
   return {
     next() {
-        return inital[pointer++]},
+        pointer++;
+        if (pointer===array.length) pointer=0;
+        return array[pointer]
+    },
     copy() {
-        return cycleList(inital,pointer)}
+        return cycleList(array,pointer)}
   };
 };
 
