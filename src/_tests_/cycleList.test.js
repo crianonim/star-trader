@@ -5,3 +5,7 @@ it("has all the properties",()=>{
     expect(typeof list.next).toBe("function")
     expect(typeof list.copy).toBe("function")
 })
+it("has accepts only Arrays as initial values",()=>{
+    expect(()=>cycleList([1,2,3])).not.toThrow();
+    expect(()=>cycleList("bad")).toThrow();
+})
